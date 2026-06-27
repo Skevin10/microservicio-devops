@@ -144,3 +144,7 @@ python src/app.py
 -  Rotar secretos regularmente
 -  Nunca commitear `.env` o `.env.local`
 -  Nunca hardcodear credenciales
+
+##LEVANTAR CONTENEDOR PY
+docker build -t microservicio-py:latest .
+docker run -p 8080:8080 -e APP_VERSION=1.0.0 microservicio-py:latest
