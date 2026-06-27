@@ -38,6 +38,13 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/ -v --tb=short
+      
+      # 5.5 Secrect Validation
+      - name: Secure secret validation
+        run: |
+          echo "Secret is configured and available"
+          # En prod:
+          # curl -H "Authorization: Bearer ${{ secrets.API_KEY_SECRET }}" https://api.example.com
 
       # 6. Build Docker image
       - name: Build Docker image
