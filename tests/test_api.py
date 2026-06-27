@@ -13,6 +13,7 @@ def test_health():
     assert response.status_code == 200
     data = json.loads(response.data)
     assert data['status'] == 'ok'
+    assert data['container'] == 'python'
 
 def test_version():
     """Test endpoint /version"""
@@ -21,7 +22,8 @@ def test_version():
     
     assert response.status_code == 200
     data = json.loads(response.data)
-    assert 'version' in data
+    # Cambiar de 'version' a 'versionContainerPython'
+    assert 'versionContainerPython' in data
 
 if __name__ == '__main__':
     test_health()
