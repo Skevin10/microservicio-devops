@@ -10,7 +10,10 @@ def health():
     Ruta de comprobacion de estado Healthcheck
     Devuelve un estado 'ok' para indicar que el servidor esta en línea.
     """
-    return jsonify({"status": "ok"}), 200
+    return jsonify({
+        "status": "ok",
+        "container": "python"
+    }), 200
 
 @app.route('/version', methods=['GET'])
 def version():
@@ -20,7 +23,7 @@ def version():
     """
     # Si no se encuentra la variable de entorno, usa '1.0.0' por defecto
     app_version = os.getenv('APP_VERSION', '1.0.0')
-    return jsonify({"version": app_version}), 200
+    return jsonify({"versionContainerPython": app_version}), 200
 
 if __name__ == '__main__':
     # Ejecuta el servidor en todas las interfaces (0.0.0.0) a traves del puerto 8080
